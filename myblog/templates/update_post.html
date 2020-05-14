@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="new_post">
+        <h1>Edit New Post</h1>
+        {% if user.is_authenticated%}
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p}}
+                <p><button>Update</button></p>
+            </form>
+        {% else %}
+            <p>you Need to Login first</p>
+            <p><button><a href="{%url 'login'%}"> Login </a></button></p>
+        {% endif %}
+    </div>
+{% endblock %}

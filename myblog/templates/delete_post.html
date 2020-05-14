@@ -1,0 +1,20 @@
+ 
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="new_post">
+    {% if user.is_authenticated%}
+        <h1>Delete: {{ post.title}}?</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <h2>Are you Sure</h2>
+            {{ form.as_p}}
+            <p><button>Delete</button></p>
+        </form>
+        {% else %}
+            <p>you Need to Login first</p>
+            <p><button><a href="{%url 'login'%}"> Login </a></button></p>
+            
+        {% endif %}
+    </div>
+{% endblock %}

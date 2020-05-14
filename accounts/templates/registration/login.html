@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="new_post">
+        <h1>Edit New Post</h1>
+        <form method="POST">
+            {% csrf_token %}
+            {{ form.as_p}}
+            <p><button>Login</button></p>
+        </form>
+    </div>
+{% endblock %}
